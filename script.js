@@ -7,7 +7,7 @@ function checkReturnVisitor() {
     
     if (hasVisited) {
         // User has visited before, redirect immediately
-        window.location.href = 'https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=6&p7=%7Bp7%7D&clickid=%7Bclickid%7D&subid=%7Bsubid%7D&subid2=%7Bsubid2%7D&affid=cf9f103c';
+        window.location.href = 'https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=5&p7=%7Bp7%7D&clickid=%7Bclickid%7D&subid=%7Bsubid%7D&subid2=%7Bsubid2%7D&affid=cf9f103c';
         return true;
     }
     
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function redirectToSite() {
     markAsVisited();
-    window.location.href = 'https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=6&p7=%7Bp7%7D&clickid=%7Bclickid%7D&subid=%7Bsubid%7D&subid2=%7Bsubid2%7D&affid=cf9f103c';
+    window.location.href = 'https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=5&p7=%7Bp7%7D&clickid=%7Bclickid%7D&subid=%7Bsubid%7D&subid2=%7Bsubid2%7D&affid=cf9f103c';
 }
 
 // Touch/swipe functionality for mobile
