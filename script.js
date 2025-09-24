@@ -1,48 +1,13 @@
 let currentSlide = 1;
 const totalSlides = 4;
 
-// Encode email to base64 JSON format
-function encodeEmailToBase64(email) {
-    const emailData = {
-        "email": email
-    };
-    const jsonString = JSON.stringify(emailData);
-    return btoa(jsonString);
-}
-
-// Save email to localStorage
-function saveEmail(email) {
-    localStorage.setItem('kasidieEmail', email);
-}
-
-// Get saved email from localStorage
-function getSavedEmail() {
-    return localStorage.getItem('kasidieEmail');
-}
-
-// Build redirect URL with email data
-function buildRedirectURL(baseURL, email = null) {
-    if (!email) {
-        email = getSavedEmail();
-    }
-    
-    if (email) {
-        const encodedData = encodeEmailToBase64(email);
-        const separator = baseURL.includes('?') ? '&' : '?';
-        return `${baseURL}${separator}_fData=${encodedData}`;
-    }
-    
-    return baseURL;
-}
-
 // Check if user has visited before
 function checkReturnVisitor() {
     const hasVisited = localStorage.getItem('kasidieVisited');
     
     if (hasVisited) {
-        // User has visited before, redirect immediately with saved email
-        const redirectURL = buildRedirectURL('https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=5&p7=%7Bp7%7D&clickid=%7Bclickid%7D&subid=%7Bsubid%7D&subid2=%7Bsubid2%7D&affid=cf9f103c');
-        window.location.href = redirectURL;
+        // User has visited before, redirect immediately
+        window.location.href = 'https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=5&p7=%7Bp7%7D&clickid=%7Bclickid%7D&subid=%7Bsubid%7D&subid2=%7Bsubid2%7D&affid=cf9f103c';
         return true;
     }
     
@@ -59,7 +24,6 @@ function markAsVisited() {
 function clearVisitorData() {
     localStorage.removeItem('kasidieVisited');
     localStorage.removeItem('kasidieVisitTime');
-    localStorage.removeItem('kasidieEmail');
     console.log('Visitor data cleared');
 }
 
@@ -80,8 +44,6 @@ function nextSlideWithEmail() {
     
     // Check if email is valid
     if (email && isValidEmail(email)) {
-        // Save email to localStorage
-        saveEmail(email);
         nextSlide();
     }
 }
@@ -118,8 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function redirectToSite() {
     markAsVisited();
-    const redirectURL = buildRedirectURL('https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=5&p7=%7Bp7%7D&clickid=%7Bclickid%7D&subid=%7Bsubid%7D&subid2=%7Bsubid2%7D&affid=cf9f103c');
-    window.location.href = redirectURL;
+    window.location.href = 'https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=5&p7=%7Bp7%7D&clickid=%7Bclickid%7D&subid=%7Bsubid%7D&subid2=%7Bsubid2%7D&affid=cf9f103c';
 }
 
 // Touch/swipe functionality for mobile
