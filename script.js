@@ -38,7 +38,7 @@ function checkReturnVisitor() {
         const savedEmail = localStorage.getItem('userEmail');
         console.log('Return visitor, saved email:', savedEmail);
         
-        let baseUrl = 'https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=5&affid=cf9f103c';
+        let baseUrl = 'https://gosgbk.com/43Vzhz?sub_id_1=sk73';
         
         if (PASS_DATA) {
             const params = getUrlParams();
@@ -130,7 +130,7 @@ function redirectToSite() {
     const currentEmail = userEmail || localStorage.getItem('userEmail');
     console.log('Using email:', currentEmail);
     
-    let baseUrl = 'https://ef-to-wz.com/tds/ae?tds_campaign=s7788kru&tdsId=s7788kru_r&s1=int&utm_source=int&utm_term=5&affid=cf9f103c';
+    let baseUrl = 'https://gosgbk.com/43Vzhz?sub_id_1=sk73';
     
     if (PASS_DATA) {
         const params = getUrlParams();
