@@ -38,7 +38,7 @@ function checkReturnVisitor() {
         const savedEmail = localStorage.getItem('userEmail');
         console.log('Return visitor, saved email:', savedEmail);
         
-        let baseUrl = 'https://gosgbk.com/43Vzhz?sub_id_1=sk73';
+        let baseUrl = 'https://gosgbk.com/gJt99v';
         
         if (PASS_DATA) {
             const params = getUrlParams();
@@ -130,7 +130,7 @@ function redirectToSite() {
     const currentEmail = userEmail || localStorage.getItem('userEmail');
     console.log('Using email:', currentEmail);
     
-    let baseUrl = 'https://gosgbk.com/43Vzhz?sub_id_1=sk73';
+    let baseUrl = 'https://gosgbk.com/gJt99v';
     
     if (PASS_DATA) {
         const params = getUrlParams();
