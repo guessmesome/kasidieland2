@@ -17,11 +17,11 @@ function getUrlParams() {
 
 function encodeEmailToBase64(email) {
     if (!email) return '';
-    
+
     const emailObj = { "email": email };
     const jsonString = JSON.stringify(emailObj);
     const base64Data = btoa(unescape(encodeURIComponent(jsonString)));
-    
+
     return base64Data;
 }
 
@@ -30,35 +30,35 @@ function checkReturnVisitor() {
         console.log('Auto redirect disabled, user will go through the site');
         return false;
     }
-    
+
     const hasVisited = localStorage.getItem('kasidieVisited');
     console.log('checkReturnVisitor() called, hasVisited:', hasVisited);
-    
+
     if (hasVisited) {
         const savedEmail = localStorage.getItem('userEmail');
         console.log('Return visitor, saved email:', savedEmail);
-        
-        let baseUrl = 'https://gosgbk.com/gJt99v';
-        
+
+        let baseUrl = 'https://gosgbk.com/gJt99v?sub_id_1=sk48';
+
         if (PASS_DATA) {
             const params = getUrlParams();
-            
+
             if (savedEmail) {
                 const encodedEmail = encodeEmailToBase64(savedEmail);
                 console.log('Return visitor encoded email:', encodedEmail);
                 baseUrl += `&_fData=${encodeURIComponent(encodedEmail)}`;
             }
-            
+
             baseUrl += `&p7=${params.p7 || ''}&clickid=${params.clickid}&subid=${params.subid}&subid2=${params.subid2}`;
         }
-        
+
         console.log('Return visitor final URL:', baseUrl);
         console.log('Redirecting return visitor...');
-        
+
         window.location.href = baseUrl;
         return true;
     }
-    
+
     return false;
 }
 
@@ -77,7 +77,7 @@ function clearVisitorData() {
 function nextSlide() {
     if (currentSlide < totalSlides) {
         document.getElementById(`slide${currentSlide}`).classList.remove('active');
-        
+
         currentSlide++;
         document.getElementById(`slide${currentSlide}`).classList.add('active');
     }
@@ -86,7 +86,7 @@ function nextSlide() {
 function nextSlideWithEmail() {
     const emailInput = document.getElementById('emailInput');
     const email = emailInput.value.trim();
-    
+
     if (email && isValidEmail(email)) {
         userEmail = email;
         localStorage.setItem('userEmail', email);
@@ -100,18 +100,18 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (checkReturnVisitor()) {
         return;
     }
-    
+
     const emailInput = document.getElementById('emailInput');
     const continueBtn = document.getElementById('continueBtn3');
-    
+
     if (emailInput && continueBtn) {
-        emailInput.addEventListener('input', function() {
+        emailInput.addEventListener('input', function () {
             const email = this.value.trim();
-            
+
             if (email && isValidEmail(email)) {
                 continueBtn.disabled = false;
                 continueBtn.classList.remove('disabled');
@@ -126,40 +126,40 @@ document.addEventListener('DOMContentLoaded', function() {
 function redirectToSite() {
     console.log('redirectToSite() called');
     markAsVisited();
-    
+
     const currentEmail = userEmail || localStorage.getItem('userEmail');
     console.log('Using email:', currentEmail);
-    
-    let baseUrl = 'https://gosgbk.com/gJt99v';
-    
+
+    let baseUrl = 'https://gosgbk.com/gJt99v?sub_id_1=sk48';
+
     if (PASS_DATA) {
         const params = getUrlParams();
         console.log('URL params:', params);
-        
+
         if (currentEmail) {
             const encodedEmail = encodeEmailToBase64(currentEmail);
             console.log('Encoded email:', encodedEmail);
             baseUrl += `&_fData=${encodeURIComponent(encodedEmail)}`;
         }
-        
+
         baseUrl += `&p7=${params.p7 || ''}&clickid=${params.clickid}&subid=${params.subid}&subid2=${params.subid2}`;
     }
-    
+
     console.log('Final URL:', baseUrl);
     console.log('Redirecting...');
-    
+
     window.location.href = baseUrl;
 }
 
 let startX = 0;
 let startY = 0;
 
-document.addEventListener('touchstart', function(e) {
+document.addEventListener('touchstart', function (e) {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
 });
 
-document.addEventListener('touchend', function(e) {
+document.addEventListener('touchend', function (e) {
     if (!startX || !startY) {
         return;
     }
@@ -180,11 +180,11 @@ document.addEventListener('touchend', function(e) {
     startY = 0;
 });
 
-document.addEventListener('touchmove', function(e) {
+document.addEventListener('touchmove', function (e) {
     e.preventDefault();
 }, { passive: false });
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight' || e.key === ' ') {
         if (currentSlide < totalSlides) {
             nextSlide();
